@@ -1,5 +1,5 @@
 # 💫 About Me:
-👋 Hi, I'm P-kit <br><br>🎓 Junior Pentester & CLI Developer<br><br>I am deeply interested in cybersecurity, ethical hacking, and vulnerability research. I strongly believe that truly understanding security starts with building tools from the ground up, which is why I focus on low-level and system programming alongside automation.<br>🔭 What i'm up to<br><br>🛡️ Training to become a Pentester, studying attack vectors and security analysis.<br><br>💻 Building custom CLI utilities using C and Python to automate workflows.<br><br>🚀 Currently developing my own GitHub CLI tool.
+👋 Hi, I'm P-kit <br><br>🎓 Junior Pentester & CLI Developer<br><br>I am deeply interested in cybersecurity, ethical hacking, and vulnerability research. I strongly believe that truly understanding security starts with building tools from the ground up, which is why I focus on low-level and system programming alongside automation.<br><br>🚀 Currently developing my own GitHub CLI tool.
 
 
 # 💻 Tech Stack:
