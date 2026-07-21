@@ -1,15 +1,38 @@
-- name: Snake Evolution
-  # You may pin to the exact commit or the version.
-  # uses: miccy/snake-evolution@42e6db66e50979a0fffbb857ed833c731f77abae
-  uses: miccy/snake-evolution@v1.3.0
-  with:
-    # GitHub username to generate snake for
-    github_user_name: purpla-fantastic
-    # GitHub token for API access (optional, uses public scraping if not provided)
-    github_token: # optional, default is 
-    # Output file path(s) - SVG only while GIF support is in progress
-    outputs: # optional, default is dist/snake.svg
-    # Color theme (github-light, github-dark, ocean, sunset, neon-gamer, cypherpunk; glass planned with future GIF support)
-    theme: # optional, default is github-dark
-    # Year to generate contributions for
-    year: # optional, default is 
+name: Generate Snake Game
+
+on:
+  schedule:
+    # Запуск каждые 24 часа в полночь
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  generate:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Вот твой блок с параметрами, встроенный в правильную структуру:
+      - name: Snake Evolution
+        uses: miccy/snake-evolution@v1.3.0
+        with:
+          github_user_name: purpla-fantastic
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          outputs: dist/snake.svg
+          theme: github-dark
+
+      - name: Push snake.svg to output branch
+        uses: CrazyMax/ghaction-github-pages@v4
+        with:
+          target_branch: output
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
